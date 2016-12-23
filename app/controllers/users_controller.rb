@@ -11,6 +11,24 @@ class UsersController < Clearance::UsersController
     end
   end
 
+  def show
+    @user = User.find_by_id(params[:id])
+  end
+
+  def edit
+     @user = User.find_by_id(params[:id])
+  end
+
+  def update
+    @user = User.find_by_id(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:notice] = "Successfully Updated"
+    else
+      flash[:notice] = @user.errors.full_messages
+    end
+      render 'edit'
+  end
+
 
 private 
 
