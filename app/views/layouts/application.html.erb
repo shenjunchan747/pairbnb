@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html>
 <head>
   <%= javascript_include_tag 'application' %>
@@ -12,6 +12,8 @@
     <% else -%>
       <%= link_to t(".sign_in"), sign_in_path %>
     <% end -%>
+
+    <%= link_to "Sign in with Facebook", "/auth/facebook" %>
   </div>
 
   <div id="flash">

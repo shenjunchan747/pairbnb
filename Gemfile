@@ -14,6 +14,10 @@ gem 'pg', '~> 0.18'
 #Figaro gem
 gem "figaro"
 
+#omni facebook
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 #clearance gem
 gem 'clearance'
 
