@@ -7,3 +7,10 @@
     </tr>
 <% end %>
 </table>
+
+<div class="apple_pagination">
+   <div class="page_info">
+     <%= page_entries_info @listings %>
+   </div>
+   <%= will_paginate @listings, :container => false %>
+</div>

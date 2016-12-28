@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar-default {
+  min-height: 70px;
+}
+
+.navbar-brand {
+  left: 10px;
+  top: 10px;
+  margin: -5px 0px 0px 0px;  
+}
+
+.btn-default {
+  margin-top: 10px;
+  margin-left: -10px;
+}
