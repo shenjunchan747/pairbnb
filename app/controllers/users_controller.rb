@@ -13,6 +13,7 @@ class UsersController < Clearance::UsersController
 
   def show
     @user = User.find_by_id(params[:id])
+    @reservations = @user.reservations
   end
 
   def edit
@@ -33,6 +34,6 @@ class UsersController < Clearance::UsersController
 private 
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :encrypted_password, :confirmation_token,{avatar:[]})
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :encrypted_password, :confirmation_token,:avatar)
   end
 end

@@ -4,10 +4,13 @@ class User < ApplicationRecord
 
   has_many :authentications, :dependent => :destroy
   has_many :listings
+  has_many :reservations 
 
   
   validates :first_name, presence: true
   enum access_level: [:customer, :moderator, :superadmin]
+
+  mount_uploader :avatar, AvatarUploader
 
 
 

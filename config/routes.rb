@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'static_pages/landing'
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -17,7 +19,10 @@ Rails.application.routes.draw do
   
   root 'listings#index'
 
-  resources :listings
+  resources :listings do 
+    resources :reservations,only: [:create]
+  end
+  resources :reservations, only: [:destroy]
   
 
 

@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
   before_action :find_listing, only: [:show, :edit, :update]
-
+ 
   def index
     # @listings = Listing.all
     @listings = Listing.all.paginate(:page => params[:page], per_page: 5) 
@@ -9,6 +9,7 @@ class ListingsController < ApplicationController
 
   def new 
     @listing = Listing.new
+
   end
 
   def create
@@ -22,6 +23,7 @@ class ListingsController < ApplicationController
   end
 
   def show
+    @reservation = @listing.reservations.new 
   end
 
   def edit
@@ -48,7 +50,7 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :max_guests, :price, :user_id)
+    params.require(:listing).permit(:title, :description, :max_guests, :price, :user_id, {photos: []})
   end
 
 

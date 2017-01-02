@@ -14,6 +14,10 @@ gem 'pg', '~> 0.18'
 #Figaro gem
 gem "figaro"
 
+#Bootstrap
+gem 'bootstrap-sass'
+gem "font-awesome-rails"
+
 #omni facebook
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -24,6 +28,9 @@ gem 'clearance'
 #Gem carrierwave and mini magic
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem "mini_magick"
+
+#gem fog
+gem 'fog'
 #pagination
 gem 'will_paginate', '~> 3.1.1'
 
