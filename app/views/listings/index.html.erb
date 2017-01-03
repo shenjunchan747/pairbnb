@@ -1,0 +1,16 @@
+<%= link_to "Create New Listing", new_listing_path %>
+
+<table>
+  <% @listings.each do |listing| %>
+    <tr>
+      <td><%= link_to listing.title, listing %></td>
+    </tr>
+<% end %>
+</table>
+
+<div class="apple_pagination">
+   <div class="page_info">
+     <%= page_entries_info @listings %>
+   </div>
+   <%= will_paginate @listings, :container => false %>
+</div>

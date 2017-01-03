@@ -1,0 +1,44 @@
+<h1>Title: <%= @listing.title %></h1>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <%= image_tag @listing.photos.first.thumb.url , :class => "imageclass" %>
+      </div>
+    
+
+    <% @listing.photos.drop(1).each do |a| %>
+      <div class="item">
+        <%= image_tag a.thumb.url , :class => "imageclass" %>
+      </div>
+    <% end %>
+    </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
+</div>
+
+<div>
+  Posted By <%= @listing.user.first_name %>
+</div>
+<p>Description:<%= @listing.description %></p>
+<p>Max Guests:<%= @listing.max_guests %></p>
+<p>Price:<%= @listing.price %></p>
+
+<%= link_to 'Click here to edit', edit_listing_path(@listing) %>
+<%= render "reservations/form" %>

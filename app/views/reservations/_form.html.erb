@@ -1,0 +1,18 @@
+<%= form_for [@listing, @reservation] do |form| %>
+  <% if @errors.present? %>
+    <div>
+      <%= @errors %>
+    </div>
+  <% end %>
+  <%= form.label :num_guests %><br>
+  <%= form.number_field :num_guests%><br>
+  <br>
+  <%= form.label :start_date %><br>
+  <%= form.date_field :start_date %><br>
+  <br>
+  <%= form.label :end_date %><br>
+  <%= form.date_field :end_date %><br>
+  <br>
+  
+  <%= form.submit %>
+  <% end %>

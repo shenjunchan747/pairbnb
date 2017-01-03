@@ -2,3 +2,26 @@
 <p>Last Name:<%= @user.last_name %></p>
 
 <%= link_to 'Click here to edit your user profile', edit_user_path %>
+
+<h2>Bookings</h2>
+<table>   
+  <tr>
+    <th>Listing Title</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Number Of Guests</th>
+    <th>Total Price</th>
+    <th>Actions</th>
+  </tr>
+  
+  <% @reservations.each do |r| %>
+    <tr>
+      <td><%= link_to r.listing.title, r.listing %></td>
+      <td><%= r.start_date.strftime('%d %B %Y') %></td>
+      <td><%= r.end_date.strftime('%d %B %Y') %></td>
+      <td><%= r.num_guests %></td>
+      <td><%= r.total_price %></td>
+      <td><%= link_to "Cancel Reservation", r , method: :delete %></td>
+    </tr>
+  <% end %>
+</table>

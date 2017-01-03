@@ -14,8 +14,25 @@ gem 'pg', '~> 0.18'
 #Figaro gem
 gem "figaro"
 
+#Bootstrap
+gem 'bootstrap-sass'
+gem "font-awesome-rails"
+
+#omni facebook
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 #clearance gem
 gem 'clearance'
+
+#Gem carrierwave and mini magic
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem "mini_magick"
+
+#gem fog
+gem 'fog'
+#pagination
+gem 'will_paginate', '~> 3.1.1'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
