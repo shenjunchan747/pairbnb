@@ -4,9 +4,10 @@ class ReservationsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     @reservation = current_user.reservations.new(reservation_params)
     @reservation.listing = @listing 
-    if @reservation.save
-      redirect_to current_user
-    else
+     if @reservation.save
+      UserMailer.reservation_email  (current_user, @listing.user, @reservation_id).deliver_now
+      redirect_to braintree_new_path
+     else
       @errors = @reservation.errors.full_messages
       render "listings/show"
     end

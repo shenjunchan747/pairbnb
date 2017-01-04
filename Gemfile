@@ -14,6 +14,9 @@ gem 'pg', '~> 0.18'
 #Figaro gem
 gem "figaro"
 
+#braintree
+gem 'braintree'
+
 #Bootstrap
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
@@ -24,6 +27,9 @@ gem 'omniauth-facebook'
 
 #clearance gem
 gem 'clearance'
+
+#sidekiq
+gem 'sidekiq'
 
 #Gem carrierwave and mini magic
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'

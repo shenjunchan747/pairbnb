@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'braintree/new'
+
+
+  post 'braintree/checkout' => 'braintree#checkout'
+
   get 'static_pages/landing'
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]

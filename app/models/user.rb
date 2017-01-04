@@ -3,8 +3,8 @@ class User < ApplicationRecord
 
 
   has_many :authentications, :dependent => :destroy
-  has_many :listings
-  has_many :reservations 
+  has_many :listings ,:dependent => :destroy
+  has_many :reservations,:dependent => :destroy
 
   
   validates :first_name, presence: true
