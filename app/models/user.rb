@@ -17,7 +17,7 @@ class User < ApplicationRecord
   def self.create_with_auth_and_hash(authentication, auth_hash)
     
     # user = User.create(first_name: auth_hash["first_name"], last_name: auth_hash["last_name"], email: auth_hash["extra"]["raw_info"]["email"])
-    byebug #auth_hash
+    #auth_hash
     user = User.create!(first_name: auth_hash["extra"]["raw_info"]["first_name"],last_name: auth_hash["extra"]["raw_info"]["last_name"],email: auth_hash["extra"]["raw_info"]["email"])
     
     #user.new

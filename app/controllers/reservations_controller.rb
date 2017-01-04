@@ -5,7 +5,6 @@ class ReservationsController < ApplicationController
     @reservation = current_user.reservations.new(reservation_params)
     @reservation.listing = @listing 
      if @reservation.save
-      UserMailer.reservation_email  (current_user, @listing.user, @reservation_id).deliver_now
       redirect_to braintree_new_path
      else
       @errors = @reservation.errors.full_messages
