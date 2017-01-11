@@ -1,0 +1,10 @@
+<% @reservations.each do |r| %>
+    <tr>
+      <td><%= link_to r.listing.title, r.listing %></td>
+      <td><%= r.start_date.strftime('%d %B %Y') %></td>
+      <td><%= r.end_date.strftime('%d %B %Y') %></td>
+      <td><%= r.num_guests %></td>
+      <td><%= r.total_price %></td>
+      <td><%= link_to "Cancel Reservation", r , method: :delete %></td>
+    </tr>
+  <% end %>

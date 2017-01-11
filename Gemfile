@@ -28,6 +28,9 @@ gem 'omniauth-facebook'
 #clearance gem
 gem 'clearance'
 
+#pg search gem
+gem 'pg_search'
+
 #sidekiq
 gem 'sidekiq'
 
