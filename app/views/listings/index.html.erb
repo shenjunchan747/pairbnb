@@ -1,10 +1,12 @@
-<%= link_to "Create New Listing", new_listing_path %>
-
 <table>
   <% @listings.each do |listing| %>
     <tr>
+      <% if listing.class != Listing %>
+      <% listing = Listing.find(listing.searchable_id)%>
+      <% end %>
       <td><%= link_to listing.title, listing %></td>
-    </tr>
+      
+      </tr>
 <% end %>
 </table>
 

@@ -1,12 +1,18 @@
 class ReservationsController < ApplicationController
 
+  def index
+    @reservations = User.find_by_id(params[:user_id]).reservations
+    render "reservations/index"
+  end
+
   def create
     @listing = Listing.find(params[:listing_id])
     @reservation = current_user.reservations.new(reservation_params)
-    @reservation.listing = @listing 
-    if @reservation.save
-      redirect_to current_user
-    else
+    @reservation.listing = @listing
+    @reservation.total_price = @reservation.cal_total_price 
+     if @reservation.save
+      redirect_to braintree_new_path
+     else
       @errors = @reservation.errors.full_messages
       render "listings/show"
     end

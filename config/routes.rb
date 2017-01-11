@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
-  get 'static_pages/landing'
+  get 'braintree/new'
 
+
+  post 'braintree/checkout' => 'braintree#checkout'
+
+  get 'static_pages/landing'
+  post '/search' => 'listings#search', as: :search
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
   resources :users do
+    resources :reservations, only: [:index]
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]

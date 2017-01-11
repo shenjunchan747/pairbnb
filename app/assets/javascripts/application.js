@@ -12,8 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
 //= require bootstrap-sprockets
 //= require js/contact_me
 //= require js/jqBootstrapValidation
+//= require_tree .
+
+$(document).ready(function () {
+    $('.dropdown-toggle').dropdown();
+});
+
+//= require turbolinks

@@ -2,8 +2,10 @@ class ListingsController < ApplicationController
   before_action :find_listing, only: [:show, :edit, :update]
  
   def index
+
     # @listings = Listing.all
-    @listings = Listing.all.paginate(:page => params[:page], per_page: 5) 
+    @listings = Listing.all.paginate(:page => params[:page], per_page: 5)
+    @listings = Listing.filter(params.slice(:price, :max_guests, :starts_with)).paginate(:page => params[:page], per_page: 5) 
   end
 
 
@@ -39,6 +41,11 @@ class ListingsController < ApplicationController
     end
       
   end
+
+  def search
+    @listings = PgSearch.multisearch(params['/search'][:search_input]).paginate(:page => params[:page], per_page: 5)
+    render :index
+  end 
 
   def find_listing
     @listing = Listing.find(params[:id])

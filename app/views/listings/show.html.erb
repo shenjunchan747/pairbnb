@@ -9,14 +9,12 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <%= image_tag @listing.photos.first.thumb.url , :class => "imageclass" %>
-      </div>
+      <div class="item active"><%= image_tag @listing.photos.first.thumb.url , :class => "imageclass" %>
+            </div>
     
 
     <% @listing.photos.drop(1).each do |a| %>
-      <div class="item">
-        <%= image_tag a.thumb.url , :class => "imageclass" %>
+      <div class="item"> <%= image_tag a.thumb.url , :class => "imageclass" %>
       </div>
     <% end %>
     </div>
